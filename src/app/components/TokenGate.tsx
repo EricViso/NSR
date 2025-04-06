@@ -13,7 +13,7 @@ type TokenGateProps = {
 }
 
 export default function TokenGate({ children }: TokenGateProps) {
-  const { isConnected, address, connector } = useAccount();
+  const { isConnected, address } = useAccount();
   const [mounted, setMounted] = useState(false);
 
   // Only show content after component has mounted to avoid hydration errors
@@ -121,7 +121,7 @@ function Checkout() {
   return (
     <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800">
       <h2 className="text-xl font-bold mb-4 dark:text-white">Membership Required</h2>
-      <p className="mb-4 dark:text-gray-300">You currently don't have a membership...</p>
+      <p className="mb-4 dark:text-gray-300">You currently don&apos;t have a membership...</p>
       <button 
         onClick={checkout} 
         className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

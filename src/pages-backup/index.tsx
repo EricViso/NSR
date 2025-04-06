@@ -1,121 +1,106 @@
-import { useAccount, useConnect, useReadContract } from "wagmi"
-import { injected } from "wagmi/connectors"
-import { PublicLockV13 } from "@unlock-protocol/contracts"
-import { LOCK, NETWORK } from "../lib/constants"
-import { Paywall } from "@unlock-protocol/paywall"
-import networks from '@unlock-protocol/networks'
-import { type ReactNode } from "react"
+// This is a backup file, not used in production
+import { useAccount, useConnect, useContractRead } from 'wagmi';
+import { InjectedConnector } from 'wagmi/connectors/injected';
+import { PublicLockV13 } from '@unlock-protocol/contracts';
+import { LOCK, NETWORK } from '../lib/constants';
+import { ethers } from 'ethers';
+import { Paywall } from '@unlock-protocol/paywall';
+import networks from '@unlock-protocol/networks';
 
-type TokenGateProps = {
-  children: ReactNode;
-}
+export const TokenGate = ({ children }) => {
+  const { isConnected, address } = useAccount();
 
-export const TokenGate = ({ children }: TokenGateProps) => {
-  const { isConnected, address, connector } = useAccount()
-
-  const { data: isMember, isError, isPending } = useReadContract({
-    address: LOCK as `0x${string}`,
+  const { data: isMember, isError, isLoading } = useContractRead({
+    address: LOCK,
     abi: PublicLockV13.abi,
     functionName: 'balanceOf',
     chainId: NETWORK,
-    args: address ? [address] : undefined,
-    query: {
-      enabled: !!address,
+    enabled: !!address,
+    args: [address],
+    watch: true,
+    select: (data: ethers.BigNumber) => {
+      return data.gt(0);
     },
-    select: (data) => {
-      // In ethers v6, we can just check if data > 0
-      return BigInt(data?.toString() || '0') > BigInt(0)
-    }
-  })
+  });
 
-  if (isPending) {
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-  
+
   if (isError) {
-    return <div>There was an error checking your membership status. Please reload the page!</div>
+    return (
+      <div>
+        There was an error checking your membership status. Please reload the
+        page!
+      </div>
+    );
   }
 
   // User not connected
-  if (!isConnected)  {
-    return <Connect />
+  if (!isConnected) {
+    return <Connect />;
   }
 
   // User does not have membership
   if (!isMember) {
-    return <Checkout />
+    return <Checkout />;
   }
 
   // All good: user is connected and they have a membership!
-  return <>{children}</>
-}
+  return children;
+};
 
 /**
- * Connect subcomponent!
+ * Connect subcomponent
  */
 const Connect = () => {
-  const { connect } = useConnect()
-  
-  return <section>
-    <p className="mb-4">To view this post you need to be a member!</p>
-    <button 
-      onClick={() => connect({ connector: injected() })} 
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    >
-      Sign-In
-    </button>
-  </section>
-}
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  return (
+    <section>
+      <p className="mb-4">To view this post you need to be be a member!</p>
+      <button
+        onClick={() => connect()}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Sign-In
+      </button>
+    </section>
+  );
+};
 
 /**
- * Checkout subcomponent!
+ * Checkout subcomponent
  */
 const Checkout = () => {
-  const { connector } = useAccount()
-  
-  const checkout = async () => {
-    const paywall = new Paywall(networks)
-    
-    // This needs updating based on your connector's API
-    if (connector && connector.getProvider) {
-      const provider = await connector.getProvider()
-      paywall.connect(provider)
+  const { connector } = useAccount();
+
+  const checkout = () => {
+    const paywall = new Paywall(networks);
+    if (connector && connector.provider) {
+      const provider = connector.provider;
+      paywall.connect(provider);
       paywall.loadCheckoutModal({
         locks: {
           [LOCK]: {
             network: NETWORK,
-          }
+          },
         },
         pessimistic: true,
-      })
+      });
     }
-  }
+  };
 
   return (
     <section>
-      <p className="mb-4">You currently don't have a membership... </p>
-      <button 
-        onClick={() => checkout()} 
+      <p className="mb-4">You currently don&apos;t have a membership... </p>
+      <button
+        onClick={() => checkout()}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Purchase one now!
       </button>
     </section>
-  )
-}
-
-// Default export for the page
-export default function HomePage() {
-  return (
-    <TokenGate>
-      <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4">Member-Only Content</h1>
-        <p>This content is only visible to token holders.</p>
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-2">Welcome, Member!</h2>
-          <p>You now have access to exclusive content.</p>
-        </div>
-      </div>
-    </TokenGate>
-  )
-}
+  );
+};

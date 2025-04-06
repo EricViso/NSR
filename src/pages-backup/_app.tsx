@@ -1,31 +1,28 @@
-import { WagmiProvider, createConfig, http } from "wagmi";
-import { optimism } from "wagmi/chains";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { injected } from "wagmi/connectors";
-import { rpcUrls } from "../config";
+// This is a backup file, not used in production
+import { WagmiConfig, createClient } from 'wagmi';
+import { ethers } from 'ethers';
+import { network } from '../config';
+import { ReactNode } from 'react';
 
-// Create wagmi config
-const config = createConfig({
-  chains: [optimism],
-  transports: {
-    [optimism.id]: http(rpcUrls[optimism.id]),
-  },
-  connectors: [
-    injected(),
-  ],
+type AppProps = {
+  Component: React.ComponentType;
+  pageProps: Record<string, unknown>;
+};
+
+const client = createClient({
+  autoConnect: true,
+  provider: new ethers.providers.JsonRpcProvider(
+    `https://mainnet.optimism.io`,
+    'optimism'
+  ),
 });
 
-// Create react-query client (required for Wagmi v2)
-const queryClient = new QueryClient();
-
-function MyApp({ Component, pageProps }: any) {
+function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
-    </WagmiProvider>
+    <WagmiConfig client={client}>
+      <Component {...pageProps} />
+    </WagmiConfig>
   );
 }
 
-export default MyApp;
+export default App;

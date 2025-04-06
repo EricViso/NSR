@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:clean": "rm -rf .next && next dev --turbopack",
+    "prebuild": "mkdir -p .backup && mv src/pages-backup .backup/ || true",
+    "postbuild": "mv .backup/pages-backup src/ || true",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

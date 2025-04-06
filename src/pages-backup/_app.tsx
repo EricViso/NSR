@@ -1,8 +1,6 @@
 // This is a backup file, not used in production
 import { WagmiConfig, createClient } from 'wagmi';
 import { ethers } from 'ethers';
-import { network } from '../config';
-import { ReactNode } from 'react';
 
 type AppProps = {
   Component: React.ComponentType;

@@ -120,7 +120,7 @@ export default function Home() {
                     placeholder="Your email address" 
                     className="px-4 py-2 rounded-md text-[var(--charcoal)] flex-grow max-w-md"
                   />
-                  <button className="btn-secondary bg-[var(--gold)] text-[var(--navy)] hover:bg-opacity-90">
+                  <button className="btn-secondary bg-[var(--gold)] text-[var(--navy)] hover:opacity-90">
                     Subscribe
                   </button>
                 </div>
@@ -131,9 +131,9 @@ export default function Home() {
             <footer className="text-center text-[var(--slate)] dark:text-[var(--cream)]">
               <p>© 2024 Alternative Communities Report. All rights reserved.</p>
               <div className="mt-4 flex justify-center space-x-4">
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:text-opacity-80">Terms</a>
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:text-opacity-80">Privacy</a>
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:text-opacity-80">Contact</a>
+                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Terms</a>
+                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Privacy</a>
+                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Contact</a>
               </div>
             </footer>
           </div>

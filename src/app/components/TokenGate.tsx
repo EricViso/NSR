@@ -49,7 +49,7 @@ export default function TokenGate({ children }: TokenGateProps) {
       <div className="max-w-md p-8 bg-white dark:bg-[var(--charcoal)] rounded-xl shadow-md text-center">
         <h2 className="text-2xl font-bold mb-4 text-[var(--navy)] dark:text-[var(--gold)]">Error</h2>
         <p className="mb-6 text-[var(--slate)] dark:text-[var(--cream)]">There was an error checking your membership status. Please reload the page!</p>
-        <button onClick={() => window.location.reload()} className="px-6 py-3 bg-[var(--navy)] text-white rounded-md hover:bg-opacity-90 transition duration-200">
+        <button onClick={() => window.location.reload()} className="px-6 py-3 bg-[var(--navy)] text-white rounded-md hover:opacity-90 transition duration-200">
           Reload Page
         </button>
       </div>
@@ -88,7 +88,7 @@ function Connect() {
         
         <button 
           onClick={() => connect({ connector: injected() })} 
-          className="w-full px-6 py-4 bg-[var(--navy)] text-white rounded-md hover:bg-opacity-90 transition duration-200 font-bold flex items-center justify-center"
+          className="w-full px-6 py-4 bg-[var(--navy)] text-white rounded-md hover:opacity-90 transition duration-200 font-bold flex items-center justify-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10 2a8 8 0 00-8 8 1 1 0 112-0A6 6 0 1110 4a1 1 0 110 2 4 4 0 100 8 1 1 0 110-2 6 6 0 010-12 8 8 0 00-8 8z" clipRule="evenodd" />
@@ -167,7 +167,7 @@ function Checkout() {
         
         <button 
           onClick={checkout} 
-          className="w-full px-6 py-4 bg-[var(--gold)] text-[var(--navy)] rounded-md hover:bg-opacity-90 transition duration-200 font-bold flex items-center justify-center"
+          className="w-full px-6 py-4 bg-[var(--gold)] text-[var(--navy)] rounded-md hover:opacity-90 transition duration-200 font-bold flex items-center justify-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />

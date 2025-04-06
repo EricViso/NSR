@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #1A365D;
+  --charcoal: #333F48;
+  --sage: #7D9B76;
+  --gold: #D4AF37;
+  --slate: #6E7F80;
+  --cream: #F5F5DC;
+  
+  --background: var(--cream);
+  --foreground: var(--charcoal);
 }
 
 @theme inline {
@@ -14,13 +21,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--navy);
+    --foreground: var(--cream);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+.btn-primary {
+  @apply px-6 py-3 font-bold text-white rounded-md bg-[var(--navy)] hover:bg-opacity-90 transition duration-200;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 font-bold rounded-md text-[var(--navy)] bg-[var(--gold)] hover:bg-opacity-90 transition duration-200;
+}
+
+.card {
+  @apply p-6 bg-white rounded-lg shadow-md border border-[var(--slate)] dark:bg-[var(--charcoal)] dark:border-[var(--slate)];
+}
+
+.section-title {
+  @apply mb-6 text-2xl font-semibold text-[var(--navy)] dark:text-[var(--gold)];
+}
+
+.accent-text {
+  @apply text-[var(--sage)];
+}
+
+.gold-accent {
+  @apply text-[var(--gold)];
 }

@@ -81,6 +81,17 @@ export default function Footer() {
           <p className="text-xs text-muted-foreground">
             © {currentYear} Eric Miki. All rights reserved.
           </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Website made by{' '}
+            <a 
+              href="https://jubs.studio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors duration-200"
+            >
+              jubs.studio
+            </a>
+          </p>
         </div>
       </div>
     </footer>

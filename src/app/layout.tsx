@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Abel } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const abel = Abel({
+  variable: "--font-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "Token Gated Website",
-  description: "A website with token gated content using Unlock Protocol",
+  title: "Eric Miki | Mapping Alternative Communities",
+  description: "Communities are evolving beyond traditional structures. From DAOs to Network States to Digital Nations. Get the complete Alternative Communities Guide with frameworks, case studies, and implementation guides.",
 };
 
 export default function RootLayout({
@@ -26,10 +24,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${abel.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navigation />
+          <main className="pt-16 min-h-screen flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+          </main>
+        </Providers>
       </body>
     </html>
   );

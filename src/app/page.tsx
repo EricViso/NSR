@@ -1,171 +1,219 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
-import Image from "next/image";
-import ClientOnly from './components/ClientOnly';
-
-// Use no-SSR for the TokenGate to avoid hydration issues
-const TokenGate = dynamic(
-  () => import('./components/TokenGate'),
-  { 
-    ssr: false,
-    loading: () => (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--gold)]"></div>
-      </div>
-    )
-  }
-);
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Mail, BookOpen } from 'lucide-react';
 
 export default function Home() {
+  const handleContact = () => {
+    window.location.href = 'mailto:contact@ericmiki.com?subject=Let\'s Talk - Innovation Navigation';
+  };
+
+  const handleBookAccess = () => {
+    // Navigate to market analysis page (main entry point)
+    window.location.href = '/buy-book';
+  };
+
+
   return (
-    <ClientOnly
-      fallback={
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--gold)]"></div>
-        </div>
-      }
-    >
-      <div className="min-h-screen bg-[var(--cream)] dark:bg-[var(--navy)] text-[var(--charcoal)] dark:text-[var(--cream)]">
-        <TokenGate>
-          <div className="container mx-auto px-4 py-12">
-            {/* Hero Section */}
-            <header className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--navy)] dark:text-[var(--cream)]">
-                Welcome to the <span className="text-[var(--gold)]">Alternative Communities Report</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-[var(--slate)] dark:text-[var(--cream)] max-w-3xl mx-auto">
-                Get access to the latest insights on what is going on in the world 😊
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative py-8 md:py-20 px-4 lg:px-8">
+        <div className="container mx-auto max-w-4xl">
+          {/* Main Heading */}
+          <div className="text-center mb-8 md:mb-16">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-3 md:mb-6 leading-tight">
+              <span className="block">ERIC MIKI</span>
+              <span className="block text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic">
+                mapping alternative communities
+              </span>
+            </h1>
+            
+            <div className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto px-2">
+              <p className="mb-2 md:mb-4">
+                <em>Communities are evolving beyond traditional structures...</em>
               </p>
-              <div className="w-24 h-1 bg-[var(--gold)] mx-auto mb-8"></div>
-            </header>
-
-            {/* Main Content */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              {/* Featured Report Card */}
-              <div className="card bg-white dark:bg-[var(--charcoal)] border border-[var(--slate)] hover:shadow-lg transition-shadow duration-300">
-                <h2 className="text-2xl font-semibold mb-4 text-[var(--navy)] dark:text-[var(--gold)]">
-                  Featured Insight
-                </h2>
-                <p className="text-[var(--charcoal)] dark:text-[var(--cream)] mb-4">
-                  Our latest analysis on regenerative economic models shows promising trends in community-driven initiatives.
-                </p>
-                <div className="bg-[var(--sage)] bg-opacity-10 p-4 rounded-md border-l-4 border-[var(--sage)] mb-4">
-                  <p className="italic text-[var(--slate)] dark:text-[var(--cream)]">
-                    "Alternative economic structures are proving resilient in the face of systemic challenges."
-                  </p>
-                </div>
-                <button className="btn-primary bg-[var(--navy)] text-white">
-                  Read Full Report
-                </button>
-              </div>
-
-              {/* Membership Benefits */}
-              <div className="card bg-white dark:bg-[var(--charcoal)] border border-[var(--slate)] hover:shadow-lg transition-shadow duration-300">
-                <h2 className="text-2xl font-semibold mb-4 text-[var(--navy)] dark:text-[var(--gold)]">
-                  Member Benefits
-                </h2>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-[var(--gold)] mr-2">✓</span>
-                    <span>Exclusive in-depth analysis on alternative economic systems</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[var(--gold)] mr-2">✓</span>
-                    <span>Monthly insights on regenerative agriculture and community initiatives</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[var(--gold)] mr-2">✓</span>
-                    <span>Access to our community forum and expert Q&A sessions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[var(--gold)] mr-2">✓</span>
-                    <span>Quarterly deep dives into emerging sustainable technologies</span>
-                  </li>
-                </ul>
-                <p className="text-sm text-[var(--slate)] dark:text-[var(--cream)] italic mb-4">
-                  Your membership supports independent research and reporting
-                </p>
-              </div>
+              <p className="mb-2 md:mb-4">
+                <em>From DAOs to Network States to Digital Nations</em>
+              </p>
+              <p className="text-primary font-semibold">
+                * GET THE COMPLETE GUIDE 🚀
+              </p>
             </div>
 
-            {/* Topics Section */}
-            <section className="mb-16">
-              <h2 className="section-title text-center text-[var(--navy)] dark:text-[var(--gold)]">
-                Topics We Cover
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {topics.map((topic, index) => (
-                  <div key={index} className="p-6 bg-white dark:bg-[var(--charcoal)] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[var(--sage)]">
-                    <h3 className="font-bold mb-2 text-[var(--navy)] dark:text-[var(--gold)]">{topic.title}</h3>
-                    <p className="text-[var(--slate)] dark:text-[var(--cream)]">{topic.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            {/* Primary CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-12">
+              <Button
+                onClick={handleBookAccess}
+                size="lg"
+                className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                Read my Book
+              </Button>
+              <Button
+                onClick={handleContact}
+                variant="outline"
+                size="lg"
+                className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 border-2 hover:bg-accent hover:border-accent transition-all duration-300"
+              >
+                <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                Let's Connect
+              </Button>
+            </div>
 
-            {/* Newsletter Section */}
-            <section className="bg-[var(--navy)] text-[var(--cream)] p-8 rounded-lg mb-16">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-2xl font-semibold mb-4 text-[var(--gold)]">
-                  Stay Informed
-                </h2>
-                <p className="mb-6">
-                  Join our weekly newsletter for a summary of key developments and emerging trends.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    className="px-4 py-2 rounded-md text-[var(--charcoal)] flex-grow max-w-md"
-                  />
-                  <button className="btn-secondary bg-[var(--gold)] text-[var(--navy)] hover:opacity-90">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* Footer */}
-            <footer className="text-center text-[var(--slate)] dark:text-[var(--cream)]">
-              <p>© 2024 Alternative Communities Report. All rights reserved.</p>
-              <div className="mt-4 flex justify-center space-x-4">
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Terms</a>
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Privacy</a>
-                <a href="#" className="text-[var(--navy)] dark:text-[var(--gold)] hover:opacity-80">Contact</a>
-              </div>
-            </footer>
+            <div className="text-sm md:text-base text-muted-foreground">
+              <p>Includes 1-hour consultation call with the author • Bulk discounts available</p>
+            </div>
           </div>
-        </TokenGate>
-      </div>
-    </ClientOnly>
+
+          {/* Problem Statement */}
+          <div className="mb-8 md:mb-16">
+            <Card className="bg-card/80 backdrop-blur-sm border shadow-lg">
+              <CardContent className="p-4 md:p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 text-center">
+                  <div className="space-y-2 md:space-y-4">
+                    <div className="text-3xl md:text-4xl">🏘️</div>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Traditional communities are breaking down.
+                    </p>
+                  </div>
+                  <div className="space-y-2 md:space-y-4">
+                    <div className="text-3xl md:text-4xl">🌐</div>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      New digital communities are emerging everywhere.
+                    </p>
+                  </div>
+                  <div className="space-y-2 md:space-y-4">
+                    <div className="text-3xl md:text-4xl">🧭</div>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      You need a guide to navigate this new landscape.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Solution */}
+          <div className="mb-8 md:mb-16">
+            <Card className="bg-primary text-primary-foreground border shadow-lg">
+              <CardContent className="p-4 md:p-8 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-6">🧭 The Alternative Communities Guide:</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6 text-base md:text-lg">
+                  <div className="space-y-1 md:space-y-2">
+                    <div className="text-xl md:text-2xl">•</div>
+                    <p>Complete framework for building alternative communities</p>
+                  </div>
+                  <div className="space-y-1 md:space-y-2">
+                    <div className="text-xl md:text-2xl">•</div>
+                    <p>Real-world case studies and examples</p>
+                  </div>
+                  <div className="space-y-1 md:space-y-2">
+                    <div className="text-xl md:text-2xl">•</div>
+                    <p>Practical tools and implementation guides</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Alternative Communities Guide Section */}
+          <div className="mb-8 md:mb-16">
+            <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20 shadow-xl">
+              <CardContent className="p-6 md:p-10 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">📚 Alternative Communities Guide</h2>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+                  Everything you need to understand, build, and manage alternative communities. 
+                  From frameworks to case studies to implementation guides.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                  <Button
+                    onClick={handleBookAccess}
+                    size="lg"
+                    className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 bg-primary hover:bg-primary/90 shadow-lg"
+                  >
+                    <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                    Read my Book
+                  </Button>
+                  <Button
+                    onClick={handleContact}
+                    variant="outline"
+                    size="lg"
+                    className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 border-2"
+                  >
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                    Request Consultation
+                  </Button>
+                </div>
+                <p className="text-sm md:text-base text-muted-foreground">
+                  Includes 1-hour consultation call with the author • Bulk discounts available
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Section */}
+          <div className="mb-8 md:mb-16">
+            <Card className="bg-gradient-to-r from-accent/10 to-primary/10 border-accent/20 shadow-xl">
+              <CardContent className="p-6 md:p-10 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">📩 Let's Connect</h2>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+                  Have questions about alternative communities? Want to discuss your project? 
+                  Let's talk about how these frameworks can help you.
+                </p>
+                <Button
+                  onClick={handleContact}
+                  size="lg"
+                  className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 bg-accent hover:bg-accent/90 shadow-lg"
+                >
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                  Send Message
+                </Button>
+                <p className="text-sm md:text-base text-muted-foreground mt-4">
+                  Free consultation • Quick response • Expert guidance
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Final CTA Section */}
+          <div className="mb-8 md:mb-16">
+            <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/30 shadow-xl">
+              <CardContent className="p-6 md:p-10 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">Ready to Get Started? 🚀</h2>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+                  Join hundreds of community builders who are already using these frameworks 
+                  to create the future of human organization.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button
+                    onClick={handleBookAccess}
+                    size="lg"
+                    className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 bg-primary hover:bg-primary/90 shadow-lg"
+                  >
+                    <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                    Read my Book
+                  </Button>
+                  <Button
+                    onClick={handleContact}
+                    variant="outline"
+                    size="lg"
+                    className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 border-2"
+                  >
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
+                    Ask Questions First
+                  </Button>
+                </div>
+                <p className="text-sm md:text-base text-muted-foreground mt-4">
+                  Includes 1-hour consultation call • Bulk discounts available • 30-day satisfaction guarantee
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
-
-const topics = [
-  {
-    title: "Regenerative Agriculture",
-    description: "Sustainable farming practices that work with natural ecosystems to improve soil health and biodiversity."
-  },
-  {
-    title: "Community Currencies",
-    description: "Alternative economic systems that enable communities to build resilience and local prosperity."
-  },
-  {
-    title: "Decentralized Governance",
-    description: "New models for collective decision-making and resource allocation beyond traditional structures."
-  },
-  {
-    title: "Sustainable Technology",
-    description: "Innovations that address environmental challenges while meeting human needs."
-  },
-  {
-    title: "Social Impact Metrics",
-    description: "Frameworks for measuring the real-world effects of community initiatives beyond financial returns."
-  },
-  {
-    title: "Knowledge Commons",
-    description: "Collaborative approaches to creating and sharing information as a public good."
-  }
-];

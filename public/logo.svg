@@ -1,0 +1,33 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+  
+  <!-- Map/Network icon -->
+  <g transform="translate(15, 15)">
+    <!-- Network nodes -->
+    <circle cx="5" cy="5" r="2" fill="currentColor"/>
+    <circle cx="15" cy="8" r="2" fill="currentColor"/>
+    <circle cx="8" cy="15" r="2" fill="currentColor"/>
+    <circle cx="18" cy="18" r="2" fill="currentColor"/>
+    
+    <!-- Network connections -->
+    <line x1="5" y1="5" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+    <line x1="5" y1="5" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+    <line x1="15" y1="8" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+    <line x1="8" y1="15" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+    <line x1="15" y1="8" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="70" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="currentColor">
+    ERIC MIKI
+  </text>
+  <text x="70" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="currentColor" opacity="0.8">
+    mapping alternative communities
+  </text>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <!-- No gradients needed anymore -->
+  </defs>
+</svg>

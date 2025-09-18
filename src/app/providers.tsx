@@ -5,6 +5,8 @@ import { optimism } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { injected } from "wagmi/connectors";
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 // Create config outside component to avoid recreation on renders
 const config = createConfig({
@@ -41,7 +43,13 @@ export default function Providers({
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        {mounted ? children : null}
+        <ThemeProvider
+          defaultTheme="system"
+          storageKey="eric-miki-theme"
+        >
+          {mounted ? children : null}
+          <Toaster />
+        </ThemeProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

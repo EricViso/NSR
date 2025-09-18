@@ -45,7 +45,7 @@ export default function Hero({ onPurchaseClick, onPreviewClick, onContactClick, 
                 Buy Report - $2,500
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
-                Includes 1-hour consultation call with the author
+                Includes 1-hour paid consultation call with the author
               </p>
             </div>
 
@@ -158,7 +158,7 @@ export default function Hero({ onPurchaseClick, onPreviewClick, onContactClick, 
                       <span className="text-primary">✓</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span>1-hour consulting call</span>
+                      <span>1-hour paid consulting call</span>
                       <span className="text-primary">✓</span>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function Hero({ onPurchaseClick, onPreviewClick, onContactClick, 
                   </div>
 
                   <div className="text-xs text-muted-foreground">
-                    Includes 1-hour consultation call with the author
+                    Includes 1-hour paid consultation call with the author
                   </div>
                 </CardContent>
               </Card>

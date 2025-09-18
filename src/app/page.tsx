@@ -56,7 +56,7 @@ export default function Home() {
               className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 border-2 hover:bg-accent hover:border-accent transition-all duration-300"
             >
               <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
-              Free Consultation
+              Let's Talk
             </Button>
           </div>
 
@@ -127,21 +127,12 @@ export default function Home() {
                   Everything you need to understand, build, and manage alternative communities. 
                   From frameworks to case studies to implementation guides.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                <div className="flex justify-center items-center mb-6">
                   <Button asChild size="lg" className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 bg-primary hover:bg-primary/90 shadow-lg">
                     <Link href="/buy-book">
                       <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3" />
                       Get the Complete Guide
                     </Link>
-                  </Button>
-                  <Button
-                    onClick={handleContact}
-                    variant="outline"
-                    size="lg"
-                    className="text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 border-2"
-                  >
-                    <Mail className="w-5 h-5 md:w-6 md:h-6 mr-3" />
-                    Free Consultation
                   </Button>
                 </div>
                 <div className="text-center">
@@ -171,7 +162,7 @@ export default function Home() {
                   Send Message
                 </Button>
                 <p className="text-sm md:text-base text-muted-foreground mt-4">
-                  Free consultation • Quick response • Expert guidance
+                  Paid consultation • Quick response • Expert guidance
                 </p>
               </CardContent>
             </Card>

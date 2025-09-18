@@ -31,8 +31,8 @@ export default function Navigation() {
               <Button variant="ghost" size="sm" asChild>
                 <Link href="/buy-book">
                   <BarChart3 className="w-4 h-4" />
-                  <span className="hidden lg:inline">Alternative Communities Guide</span>
-                  <span className="lg:hidden">Guide</span>
+                  <span className="hidden lg:inline">Get Guide</span>
+                  <span className="lg:hidden">Get Guide</span>
                 </Link>
               </Button>
               <Button variant="ghost" size="sm" asChild>
@@ -82,7 +82,7 @@ export default function Navigation() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-accent/50"
                 >
                   <BarChart3 className="w-5 h-5" />
-                  <span className="text-base">Alternative Communities Guide</span>
+                  <span className="text-base">Get Guide</span>
                 </Link>
                 <Link 
                   href="/book" 

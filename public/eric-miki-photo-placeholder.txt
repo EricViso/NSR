@@ -1,0 +1,10 @@
+<!-- Placeholder for Eric Miki's photo -->
+<!-- 
+To add Eric's photo:
+1. Save the image as 'eric-miki-photo.jpg' in the public/ directory
+2. The image should be square or will be cropped to a circle
+3. Recommended size: 64x64px or larger (will be scaled down to 32x32px)
+4. Supported formats: JPG, PNG, WebP
+
+The navigation will automatically use the photo, with a fallback to the emoji if the image fails to load.
+-->

@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
-import { Aldrich, Space_Mono } from "next/font/google";
+import { Abel } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
-const aldrich = Aldrich({
+const abel = Abel({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: "400",
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "Token Gated Website",
-  description: "A website with token gated content using Unlock Protocol",
+  title: "Eric Miki | Mapping Alternative Communities",
+  description: "Communities are evolving beyond traditional structures. From DAOs to Network States to Digital Nations. Get the complete Alternative Communities Guide with frameworks, case studies, and implementation guides.",
 };
 
 export default function RootLayout({
@@ -28,10 +24,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${aldrich.variable} ${spaceMono.variable} antialiased`}
+        className={`${abel.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navigation />
+          <main className="pt-16 min-h-screen flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+          </main>
+        </Providers>
       </body>
     </html>
   );

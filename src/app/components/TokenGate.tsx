@@ -82,7 +82,7 @@ export default function TokenGate({ children }: TokenGateProps) {
  * Connect subcomponent
  */
 function Connect() {
-  const { connect } = useConnect();
+  const { connect, isPending } = useConnect();
   
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
@@ -91,7 +91,7 @@ function Connect() {
           <CardTitle className="text-3xl font-bold text-foreground">Members Only</CardTitle>
           <div className="w-16 h-1 bg-accent mx-auto mb-6"></div>
           <CardDescription className="text-muted-foreground">
-            To access the Alternative Communities Report, you need to connect your wallet and verify membership.
+            To access the Alternative Communities Guide, you need to connect your wallet and verify membership.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -99,11 +99,21 @@ function Connect() {
             onClick={() => connect({ connector: injected() })} 
             className="w-full font-bold"
             size="lg"
+            disabled={isPending}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 2a8 8 0 00-8 8 1 1 0 112-0A6 6 0 1110 4a1 1 0 110 2 4 4 0 100 8 1 1 0 110-2 6 6 0 010-12 8 8 0 00-8 8z" clipRule="evenodd" />
-            </svg>
-            Connect Wallet
+            {isPending ? (
+              <>
+                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
+                Connecting...
+              </>
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a8 8 0 00-8 8 1 1 0 112-0A6 6 0 1110 4a1 1 0 110 2 4 4 0 100 8 1 1 0 110-2 6 6 0 010-12 8 8 0 00-8 8z" clipRule="evenodd" />
+                </svg>
+                Connect Wallet
+              </>
+            )}
           </Button>
           
           <p className="mt-6 text-sm text-muted-foreground text-center">
@@ -120,8 +130,10 @@ function Connect() {
  */
 function Checkout() {
   const { connector } = useAccount();
+  const [isLoading, setIsLoading] = useState(false);
   
   const checkout = async () => {
+    setIsLoading(true);
     const paywall = new Paywall(networks);
     
     try {
@@ -145,6 +157,8 @@ function Checkout() {
     } catch (error) {
       console.error("Error opening checkout:", error);
       alert("There was an error opening the checkout. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -155,7 +169,7 @@ function Checkout() {
           <CardTitle className="text-3xl font-bold text-foreground">Membership Required</CardTitle>
           <div className="w-16 h-1 bg-accent mx-auto mb-6"></div>
           <CardDescription className="text-muted-foreground">
-            You&apos;re almost there! You need a membership to access the Alternative Communities Report.
+            You&apos;re almost there! You need a membership to access the Alternative Communities Guide.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -182,11 +196,21 @@ function Checkout() {
             className="w-full font-bold"
             size="lg"
             variant="secondary"
+            disabled={isLoading}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-            </svg>
-            Purchase Membership
+            {isLoading ? (
+              <>
+                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
+                Opening Checkout...
+              </>
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                </svg>
+                Purchase Membership
+              </>
+            )}
           </Button>
         </CardContent>
       </Card>

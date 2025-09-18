@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center gap-6 text-sm">
+          <div className="flex flex-wrap items-center gap-4 text-sm">
             <Link 
               href="/buy-book" 
               className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -37,6 +37,24 @@ export default function Footer() {
               className="text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               Access Guide
+            </Link>
+            <Link 
+              href="/guide" 
+              className="text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
+              Guide
+            </Link>
+            <Link 
+              href="/faq" 
+              className="text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
+              FAQ
+            </Link>
+            <Link 
+              href="/definitions" 
+              className="text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
+              Definitions
             </Link>
             <Link 
               href="/contact" 

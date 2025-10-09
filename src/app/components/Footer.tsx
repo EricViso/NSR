@@ -39,24 +39,6 @@ export default function Footer() {
               Access Guide
             </Link>
             <Link 
-              href="/guide" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              Guide
-            </Link>
-            <Link 
-              href="/faq" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              FAQ
-            </Link>
-            <Link 
-              href="/definitions" 
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              Definitions
-            </Link>
-            <Link 
               href="/contact" 
               className="text-muted-foreground hover:text-primary transition-colors duration-200"
             >
@@ -68,10 +50,10 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Mail className="w-4 h-4" />
             <a 
-              href="mailto:contact@ericmiki.com" 
+              href="mailto:eric@viso.space" 
               className="hover:text-primary transition-colors duration-200"
             >
-              contact@ericmiki.com
+              eric@viso.space
             </a>
           </div>
         </div>
@@ -82,15 +64,7 @@ export default function Footer() {
             © {currentYear} Eric Miki. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            Website made by{' '}
-            <a 
-              href="https://jubs.studio" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors duration-200"
-            >
-              jubs.studio
-            </a>
+            This website was optimized for AI... are you?
           </p>
         </div>
       </div>

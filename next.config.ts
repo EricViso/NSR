@@ -10,12 +10,7 @@ const nextConfig: NextConfig = {
     // Disable ESLint during production build for now
     ignoreDuringBuilds: true,
   },
-  // Disable Sentry in development
-  ...(process.env.NODE_ENV === 'development' && {
-    experimental: {
-      instrumentationHook: false,
-    },
-  }),
+  // Sentry configuration removed - instrumentationHook is deprecated in Next.js 15
   async headers() {
     return [
       {
@@ -25,7 +20,8 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://auth.privy.io https://www.googletagmanager.com https://js.stripe.com https://app.unlock-protocol.com https://unlock-protocol.com https://cdnjs.cloudflare.com https://embedded-wallets.privy.io",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://auth.privy.io https://www.googletagmanager.com https://js.stripe.com https://app.unlock-protocol.com https://unlock-protocol.com https://cdnjs.cloudflare.com https://embedded-wallets.privy.io https://unpkg.com",
+              "worker-src 'self' blob: https://unpkg.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",

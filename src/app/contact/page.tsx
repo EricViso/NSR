@@ -36,10 +36,10 @@ export default function ContactPage() {
                 <div>
                   <div className="font-medium">Email</div>
                   <a 
-                    href="mailto:contact@ericmiki.com" 
+                    href="mailto:eric@viso.space" 
                     className="text-primary hover:underline"
                   >
-                    contact@ericmiki.com
+                    eric@viso.space
                   </a>
                 </div>
                 <div>
@@ -55,43 +55,6 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Social Media */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
-                  Connect on Social Media
-                </CardTitle>
-                <CardDescription>
-                  Follow for updates on alternative communities and governance innovation
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <a href="https://twitter.com/ericmiki" target="_blank" rel="noopener noreferrer">
-                    <Twitter className="w-4 h-4 mr-3" />
-                    <span>Twitter</span>
-                    <ExternalLink className="w-3 h-3 ml-auto" />
-                  </a>
-                </Button>
-                
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <a href="https://linkedin.com/in/ericmiki" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-4 h-4 mr-3" />
-                    <span>LinkedIn</span>
-                    <ExternalLink className="w-3 h-3 ml-auto" />
-                  </a>
-                </Button>
-                
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <a href="https://github.com/ericmiki" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4 mr-3" />
-                    <span>GitHub</span>
-                    <ExternalLink className="w-3 h-3 ml-auto" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
 
             {/* Common Questions */}
             <Card>
@@ -105,7 +68,7 @@ export default function ContactPage() {
                 <div>
                   <div className="font-medium text-sm">Can I get a discount?</div>
                   <div className="text-xs text-muted-foreground">
-                    Bulk discounts available for teams of 5+
+                    Discounts available upon request
                   </div>
                 </div>
                 <div>
@@ -166,7 +129,7 @@ export default function ContactPage() {
                     Get updates on alternative communities and governance innovation
                   </p>
                   <Button variant="outline" size="sm" asChild>
-                    <a href="mailto:contact@ericmiki.com?subject=Newsletter%20Subscription">
+                    <a href="https://paragraph.com/@ericmiki.eth" target="_blank" rel="noopener noreferrer">
                       Subscribe
                     </a>
                   </Button>
@@ -182,7 +145,7 @@ export default function ContactPage() {
                     Invite me to speak at your event or conference
                   </p>
                   <Button variant="outline" size="sm" asChild>
-                    <a href="mailto:contact@ericmiki.com?subject=Speaking%20Engagement">
+                    <a href="mailto:eric@viso.space?subject=Speaking%20Engagement">
                       Request
                     </a>
                   </Button>
@@ -198,7 +161,7 @@ export default function ContactPage() {
                     Press inquiries and media requests
                   </p>
                   <Button variant="outline" size="sm" asChild>
-                    <a href="mailto:contact@ericmiki.com?subject=Media%20Inquiry">
+                    <a href="mailto:eric@viso.space?subject=Media%20Inquiry">
                       Contact
                     </a>
                   </Button>

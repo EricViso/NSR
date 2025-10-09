@@ -157,8 +157,8 @@ export default function PurchaseDialog({ children, productType, price, onPurchas
           <div className="text-center text-sm text-muted-foreground">
             <p>
               Questions? Contact us at{' '}
-              <a href="mailto:contact@ericmiki.com" className="text-primary hover:underline">
-                contact@ericmiki.com
+              <a href="mailto:eric@viso.space" className="text-primary hover:underline">
+                eric@viso.space
               </a>
             </p>
             <div className="flex items-center justify-center gap-4 mt-2">

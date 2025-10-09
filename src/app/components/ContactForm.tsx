@@ -82,7 +82,7 @@ ${data.message}
 Newsletter: ${data.newsletter ? 'Yes' : 'No'}
       `);
       
-      const mailtoLink = `mailto:contact@ericmiki.com?subject=${subject}&body=${body}`;
+      const mailtoLink = `mailto:eric@viso.space?subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
       
       toast({

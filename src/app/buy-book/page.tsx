@@ -40,7 +40,7 @@ export default function AlternativeCommunitiesGuide() {
   };
 
   const handleContact = () => {
-    window.location.href = 'mailto:contact@ericmiki.com?subject=Alternative Communities Guide - Inquiry';
+    window.location.href = 'mailto:eric@viso.space?subject=Alternative Communities Guide - Inquiry';
   };
 
   return (
@@ -648,13 +648,13 @@ export default function AlternativeCommunitiesGuide() {
               </div>
 
               <div className="text-sm text-muted-foreground">
-                Includes 1-hour consultation call with the author • Bulk discounts available
+                Includes 1-hour consultation call with the author • Discounts available upon request
               </div>
               
               <div className="mt-8 pt-6 border-t border-primary/20">
                 <h4 className="font-semibold text-foreground mb-3">Licensing and Fair Use</h4>
                 <div className="text-sm text-muted-foreground space-y-2">
-                  <p><strong>Data Usage Rights:</strong> Statistics and findings may be quoted with proper attribution. For excerpts exceeding 100 words, contact <a href="mailto:contact@ericmiki.com" className="text-primary hover:underline">contact@ericmiki.com</a> for licensing terms.</p>
+                  <p><strong>Data Usage Rights:</strong> Statistics and findings may be quoted with proper attribution. For excerpts exceeding 100 words, contact <a href="mailto:eric@viso.space" className="text-primary hover:underline">eric@viso.space</a> for licensing terms.</p>
                   <p><strong>Attribution Required:</strong> When citing this research, include: "Source: Eric Miki, Alternative Communities Market Analysis 2024" and link to this page.</p>
                   <p><strong>Commercial Use:</strong> Commercial reproduction requires written permission. Academic and journalistic use encouraged with attribution.</p>
                 </div>

@@ -222,7 +222,7 @@ export default function GuideCompanionPage() {
                 </div>
 
                 <div className="text-sm text-muted-foreground">
-                  Includes 1-hour consultation call with the author • Bulk discounts available
+                  Includes 1-hour consultation call with the author • Discounts available upon request
                 </div>
               </CardContent>
             </Card>

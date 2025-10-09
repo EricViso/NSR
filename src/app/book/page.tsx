@@ -76,7 +76,7 @@ export default function BookPage() {
                 </CardHeader>
                 <CardContent>
                   <Button asChild variant="secondary" className="w-full">
-                    <a href="mailto:hello@ericmiki.com?subject=Book%20Session%20-%20Alternative%20Communities%20Guide">
+                    <a href="mailto:eric@viso.space?subject=Book%20Session%20-%20Alternative%20Communities%20Guide">
                       Schedule Session
                     </a>
                   </Button>
@@ -112,7 +112,7 @@ export default function BookPage() {
             <footer className="text-center text-muted-foreground">
               <p>© 2024 Alternative Communities Guide. Access granted via NFT ownership.</p>
               <div className="mt-4 flex justify-center space-x-4">
-                <a href="mailto:hello@ericmiki.com" className="text-foreground hover:text-accent transition-colors duration-200">Support</a>
+                <a href="mailto:eric@viso.space" className="text-foreground hover:text-accent transition-colors duration-200">Support</a>
                 <Link href="/" className="text-foreground hover:text-accent transition-colors duration-200">Home</Link>
               </div>
             </footer>

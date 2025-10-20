@@ -4,17 +4,18 @@ import { useAccount, useConnect, useReadContract } from "wagmi";
 import { injected } from "wagmi/connectors";
 import { type ReactNode, useState, useEffect } from "react";
 import { PublicLockV13 } from "@unlock-protocol/contracts";
-import { LOCK, NETWORK } from "../../lib/constants";
+import { BOOKLET_LOCK, BOOK_LOCK, NETWORK } from "../../lib/constants";
 import { Paywall } from "@unlock-protocol/paywall";
 import networks from '@unlock-protocol/networks';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 type TokenGateProps = {
-  children: ReactNode;
+  children: ReactNode | ((props: { tier: 'booklet' | 'book' }) => ReactNode);
+  tier?: 'booklet' | 'book';
 }
 
-export default function TokenGate({ children }: TokenGateProps) {
+export default function TokenGate({ children, tier = 'booklet' }: TokenGateProps) {
   const { isConnected, address } = useAccount();
   const [mounted, setMounted] = useState(false);
 
@@ -23,9 +24,9 @@ export default function TokenGate({ children }: TokenGateProps) {
     setMounted(true);
   }, []);
 
-  // Read contract to check membership
-  const { data: isMember, isError, isPending } = useReadContract({
-    address: LOCK as `0x${string}`,
+  // Check booklet membership
+  const { data: hasBooklet, isError: bookletError, isPending: bookletPending } = useReadContract({
+    address: BOOKLET_LOCK as `0x${string}`,
     abi: PublicLockV13.abi,
     functionName: 'balanceOf',
     chainId: NETWORK,
@@ -37,6 +38,25 @@ export default function TokenGate({ children }: TokenGateProps) {
       return BigInt(data?.toString() || '0') > BigInt(0);
     }
   });
+
+  // Check book membership
+  const { data: hasBook, isError: bookError, isPending: bookPending } = useReadContract({
+    address: BOOK_LOCK as `0x${string}`,
+    abi: PublicLockV13.abi,
+    functionName: 'balanceOf',
+    chainId: NETWORK,
+    args: address ? [address] : undefined,
+    query: {
+      enabled: !!mounted && !!address,
+    },
+    select: (data) => {
+      return BigInt(data?.toString() || '0') > BigInt(0);
+    }
+  });
+
+  const isMember = hasBooklet || hasBook;
+  const isError = bookletError || bookError;
+  const isPending = bookletPending || bookPending;
 
   // Return loading state on server-side rendering or while contract data is loading
   if (!mounted || (isConnected && isPending)) {
@@ -75,6 +95,15 @@ export default function TokenGate({ children }: TokenGateProps) {
   }
 
   // User is connected and has a membership - show content
+  // Determine which tier the user has
+  const userTier: 'booklet' | 'book' = hasBook ? 'book' : 'booklet';
+
+  // If children is a function, call it with tier info
+  if (typeof children === 'function') {
+    return <>{children({ tier: userTier })}</>;
+  }
+
+  // Otherwise just render children
   return <>{children}</>;
 }
 
@@ -83,7 +112,7 @@ export default function TokenGate({ children }: TokenGateProps) {
  */
 function Connect() {
   const { connect, isPending } = useConnect();
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <Card className="max-w-md w-full">
@@ -93,10 +122,13 @@ function Connect() {
           <CardDescription className="text-muted-foreground">
             To access the Alternative Communities Guide, you need to connect your wallet and verify membership.
           </CardDescription>
+          <p className="text-xs text-muted-foreground mt-4">
+            Recommended: MetaMask or any EIP-1193 compatible wallet
+          </p>
         </CardHeader>
         <CardContent>
-          <Button 
-            onClick={() => connect({ connector: injected() })} 
+          <Button
+            onClick={() => connect({ connector: injected() })}
             className="w-full font-bold"
             size="lg"
             disabled={isPending}
@@ -115,7 +147,7 @@ function Connect() {
               </>
             )}
           </Button>
-          
+
           <p className="mt-6 text-sm text-muted-foreground text-center">
             Need a membership? You&apos;ll be able to purchase one after connecting.
           </p>
@@ -131,23 +163,23 @@ function Connect() {
 function Checkout() {
   const { connector } = useAccount();
   const [isLoading, setIsLoading] = useState(false);
-  
-  const checkout = async () => {
+
+  const checkout = async (lockAddress: string) => {
     setIsLoading(true);
     const paywall = new Paywall(networks);
-    
+
     try {
       // Get provider from connector
       if (connector && connector.getProvider) {
         const provider = await connector.getProvider();
-        
+
         // Connect the paywall to the provider
         paywall.connect(provider);
-        
+
         // Open the checkout modal
         paywall.loadCheckoutModal({
           locks: {
-            [LOCK]: {
+            [lockAddress]: {
               network: NETWORK,
             }
           },
@@ -163,57 +195,107 @@ function Checkout() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <Card className="max-w-md w-full">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-foreground">Membership Required</CardTitle>
-          <div className="w-16 h-1 bg-accent mx-auto mb-6"></div>
-          <CardDescription className="text-muted-foreground">
-            You&apos;re almost there! You need a membership to access the Alternative Communities Guide.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="bg-muted/50 p-4 rounded-md mb-6">
-            <h3 className="font-semibold mb-2 text-foreground">Membership Benefits:</h3>
-            <ul className="text-left space-y-1 text-foreground">
-              <li className="flex items-start">
-                <span className="text-accent mr-2">✓</span>
-                <span>Exclusive in-depth analysis</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent mr-2">✓</span>
-                <span>Monthly insights reports</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent mr-2">✓</span>
-                <span>Community forum access</span>
-              </li>
-            </ul>
-          </div>
-          
-          <Button 
-            onClick={checkout} 
-            className="w-full font-bold"
-            size="lg"
-            variant="secondary"
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                Opening Checkout...
-              </>
-            ) : (
-              <>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                </svg>
-                Purchase Membership
-              </>
-            )}
-          </Button>
-        </CardContent>
-      </Card>
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="max-w-4xl w-full">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Choose Your Guide</h1>
+          <p className="text-muted-foreground">Select the option that best fits your needs</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Booklet Option */}
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-bold text-foreground">Quick Start Booklet</CardTitle>
+              <div className="text-4xl font-bold text-accent my-4">$5</div>
+              <CardDescription className="text-muted-foreground">
+                Essential frameworks and key concepts
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Core frameworks overview</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Quick implementation guide</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Key case studies</span>
+                </li>
+              </ul>
+
+              <Button
+                onClick={() => checkout(BOOKLET_LOCK)}
+                className="w-full font-bold"
+                size="lg"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
+                    Opening Checkout...
+                  </>
+                ) : (
+                  'Get Booklet'
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Full Book Option */}
+          <Card className="hover:shadow-lg transition-shadow border-accent border-2">
+            <CardHeader className="text-center">
+              <div className="text-xs font-semibold text-accent uppercase mb-2">Most Comprehensive</div>
+              <CardTitle className="text-2xl font-bold text-foreground">Complete Guide</CardTitle>
+              <div className="text-4xl font-bold text-accent my-4">$500</div>
+              <CardDescription className="text-muted-foreground">
+                In-depth research and comprehensive analysis
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Everything in the booklet</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Detailed case studies & research</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Advanced implementation strategies</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-accent mr-2">✓</span>
+                  <span>Comprehensive reference material</span>
+                </li>
+              </ul>
+
+              <Button
+                onClick={() => checkout(BOOK_LOCK)}
+                className="w-full font-bold"
+                size="lg"
+                variant="default"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
+                    Opening Checkout...
+                  </>
+                ) : (
+                  'Get Complete Guide'
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }

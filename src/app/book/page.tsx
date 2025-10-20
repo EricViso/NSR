@@ -31,17 +31,20 @@ export default function BookPage() {
     >
       <div className="min-h-screen bg-background">
         <TokenGate>
-          <div className="container mx-auto px-4 py-12">
-            {/* Protected Content - Original landing page content */}
-            <header className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-                Welcome to the <span className="text-accent">Alternative Communities Guide</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                You now have access to the complete guide and resources 🎉
-              </p>
-              <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
-            </header>
+          {({ tier }) => (
+            <div className="container mx-auto px-4 py-12">
+              {/* Protected Content - Original landing page content */}
+              <header className="text-center mb-16">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+                  Welcome to the <span className="text-accent">
+                    {tier === 'book' ? 'Complete Guide' : 'Quick Start Booklet'}
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
+                  You now have access to the {tier === 'book' ? 'complete guide' : 'booklet'} and resources 🎉
+                </p>
+                <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+              </header>
 
             {/* Main Content */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -49,10 +52,12 @@ export default function BookPage() {
               <Card className="hover:shadow-md transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className="text-2xl font-semibold text-card-foreground">
-                    📖 Read the Book
+                    📖 Read the {tier === 'book' ? 'Complete Guide' : 'Booklet'}
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
-                    Access the complete Alternative Communities Guide with all frameworks, case studies, and implementation guides.
+                    {tier === 'book'
+                      ? 'Access the complete Alternative Communities Guide with all frameworks, case studies, and implementation guides.'
+                      : 'Access the Quick Start Booklet with essential frameworks and key concepts.'}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -65,23 +70,50 @@ export default function BookPage() {
               </Card>
 
               {/* Session Booking */}
-              <Card className="hover:shadow-md transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-semibold text-card-foreground">
-                    🗓️ Book Your Session
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    Schedule your complimentary 60-minute consultation with Eric to discuss the guide and your specific use case.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild variant="secondary" className="w-full">
-                    <a href="mailto:eric@viso.space?subject=Book%20Session%20-%20Alternative%20Communities%20Guide">
-                      Schedule Session
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+              {tier === 'book' && (
+                <Card className="hover:shadow-md transition-shadow duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-semibold text-card-foreground">
+                      🗓️ Book Your Session
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      Schedule your complimentary 60-minute consultation with Eric to discuss the guide and your specific use case.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button asChild variant="secondary" className="w-full">
+                      <a href="mailto:eric@viso.space?subject=Book%20Session%20-%20Alternative%20Communities%20Guide">
+                        Schedule Session
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Upgrade Option for Booklet Users */}
+              {tier === 'booklet' && (
+                <Card className="hover:shadow-md transition-shadow duration-300 border-primary border-2">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-semibold text-card-foreground">
+                      ⬆️ Upgrade to Complete Guide
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      Get the full guide with in-depth research, comprehensive case studies, and a 1-hour consultation call.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <div className="text-3xl font-bold text-primary">$500</div>
+                      <div className="text-sm text-muted-foreground">One-time purchase</div>
+                    </div>
+                    <Button asChild className="w-full">
+                      <Link href="/buy-book">
+                        Upgrade Now
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
             </div>
 
             {/* Additional Resources */}
@@ -117,6 +149,7 @@ export default function BookPage() {
               </div>
             </footer>
           </div>
+          )}
         </TokenGate>
       </div>
     </ClientOnly>

@@ -8,12 +8,12 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Paywall } from "@unlock-protocol/paywall";
 import networks from '@unlock-protocol/networks';
-import { LOCK, NETWORK } from "../../lib/constants";
+import { BOOKLET_LOCK, BOOK_LOCK, NETWORK, BOOKLET_PRICE, BOOK_PRICE } from "../../lib/constants";
 
 export default function AlternativeCommunitiesGuide() {
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const handlePurchase = async () => {
+  const handlePurchase = async (lockAddress: string) => {
     setIsLoading(true);
     try {
       const paywall = new Paywall(networks);
@@ -24,12 +24,12 @@ export default function AlternativeCommunitiesGuide() {
 
       paywall.loadCheckoutModal({
         locks: {
-          [LOCK]: {
+          [lockAddress]: {
             network: NETWORK,
           }
         },
         pessimistic: true,
-        redirectUri: `${window.location.origin}/read-book`,
+        redirectUri: `${window.location.origin}/book`,
       });
     } catch (error) {
       console.error("Error opening checkout:", error);
@@ -55,40 +55,109 @@ export default function AlternativeCommunitiesGuide() {
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 md:mb-6 leading-tight">
-              The Alternative Communities Guide:
-              <span className="block text-primary">Building the Future of Community</span>
+              The Network Societies Guide:
+              <span className="block text-primary">Choose Your Path</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 md:mb-8 px-2">
-              A comprehensive guide to understanding, building, and managing alternative communities. 
-              From DAOs to Network States to Digital Nations - everything you need to navigate 
-              the evolving landscape of community governance.
+              From quick-start essentials to comprehensive research - select the guide that fits your needs
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-2">
-              <Button
-                onClick={handlePurchase}
-                size="lg"
-                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4 bg-primary hover:bg-primary/90 w-full sm:w-auto"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 md:h-5 md:w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                    Opening Checkout...
-                  </>
-                ) : (
-                  <>
-                    <BookOpen className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                    Get the Complete Guide
-                  </>
-                )}
-              </Button>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-8">
+              {/* Booklet Card */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl font-bold">Quick Start Booklet</CardTitle>
+                  <div className="text-4xl font-bold text-primary my-4">${BOOKLET_PRICE}</div>
+                  <CardDescription>Essential frameworks and key concepts</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6 text-sm">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Core frameworks overview</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Quick implementation guide</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Key case studies</span>
+                    </li>
+                  </ul>
+                  <Button
+                    onClick={() => handlePurchase(BOOKLET_LOCK)}
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
+                        Opening Checkout...
+                      </>
+                    ) : (
+                      'Get Booklet'
+                    )}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Full Book Card */}
+              <Card className="hover:shadow-lg transition-shadow border-primary border-2">
+                <CardHeader className="text-center">
+                  <Badge className="mx-auto mb-2">Most Comprehensive</Badge>
+                  <CardTitle className="text-2xl font-bold">Complete Guide</CardTitle>
+                  <div className="text-4xl font-bold text-primary my-4">${BOOK_PRICE}</div>
+                  <CardDescription>In-depth research and comprehensive analysis</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6 text-sm">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Everything in the booklet</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Detailed case studies & research</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Advanced implementation strategies</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>Comprehensive reference material</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>1-hour consultation call included</span>
+                    </li>
+                  </ul>
+                  <Button
+                    onClick={() => handlePurchase(BOOK_LOCK)}
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
+                        Opening Checkout...
+                      </>
+                    ) : (
+                      'Get Complete Guide'
+                    )}
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center mt-8">
               <Button
                 onClick={handleContact}
                 variant="outline"
                 size="lg"
-                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4 w-full sm:w-auto"
+                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
               >
                 <Clock className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Request Consultation
@@ -239,17 +308,17 @@ export default function AlternativeCommunitiesGuide() {
               <h2 className="text-3xl font-bold text-foreground mb-6">What You'll Learn</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-muted-foreground mb-6">
-                  The Alternative Communities Guide is your comprehensive resource for understanding 
-                  and building communities that operate outside traditional structures. This 200+ page 
-                  guide covers everything from governance frameworks to implementation strategies.
+                  The Network Societies Guide offers two options to fit your needs: a quick-start booklet
+                  with essential frameworks ($5) and a comprehensive guide with in-depth research and case
+                  studies ($500).
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  Whether you're building a DAO, launching a Network State, or creating a digital nation, 
-                  this guide provides the frameworks, case studies, and practical tools you need to succeed 
+                  Whether you're building a DAO, launching a Network State, or creating a digital nation,
+                  these guides provide the frameworks, case studies, and practical tools you need to succeed
                   in the evolving landscape of alternative communities.
                 </p>
                 <p className="text-muted-foreground">
-                  Perfect for founders, community builders, investors, and anyone interested in the future 
+                  Perfect for founders, community builders, investors, and anyone interested in the future
                   of human organization and governance.
                 </p>
               </div>
@@ -286,7 +355,7 @@ export default function AlternativeCommunitiesGuide() {
                     <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                     <div>
                       <div className="font-semibold text-sm">Expert Consultation</div>
-                      <div className="text-xs text-muted-foreground">1-hour call included</div>
+                      <div className="text-xs text-muted-foreground">1-hour call with complete guide only</div>
                     </div>
                   </div>
                 </CardContent>
@@ -295,20 +364,32 @@ export default function AlternativeCommunitiesGuide() {
               <Card className="bg-primary/5 border-primary/20">
                 <CardContent className="pt-6">
                   <div className="text-center">
-                    <h3 className="font-semibold text-foreground mb-2">Get the Complete Guide</h3>
+                    <h3 className="font-semibold text-foreground mb-2">Get Your Guide</h3>
                     <p className="text-sm text-muted-foreground mb-4">
-                      200+ pages of frameworks, case studies, and implementation guides
+                      Choose between quick-start booklet ($5) or complete guide ($500)
                     </p>
-                    <Button onClick={handlePurchase} className="w-full" disabled={isLoading}>
-                      {isLoading ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                          Opening Checkout...
-                        </>
-                      ) : (
-                        "Access Guide - $2,500"
-                      )}
-                    </Button>
+                    <div className="space-y-2">
+                      <Button onClick={() => handlePurchase(BOOKLET_LOCK)} variant="outline" className="w-full" disabled={isLoading}>
+                        {isLoading ? (
+                          <>
+                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
+                            Opening Checkout...
+                          </>
+                        ) : (
+                          `Booklet - $${BOOKLET_PRICE}`
+                        )}
+                      </Button>
+                      <Button onClick={() => handlePurchase(BOOK_LOCK)} className="w-full" disabled={isLoading}>
+                        {isLoading ? (
+                          <>
+                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
+                            Opening Checkout...
+                          </>
+                        ) : (
+                          `Complete Guide - $${BOOK_PRICE}`
+                        )}
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -531,7 +612,7 @@ export default function AlternativeCommunitiesGuide() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Access our complete step-by-step implementation framework
                       </p>
-                      <Button onClick={handlePurchase} variant="outline" className="w-full" disabled={isLoading}>
+                      <Button onClick={() => handlePurchase(BOOK_LOCK)} variant="outline" className="w-full" disabled={isLoading}>
                         {isLoading ? (
                           <>
                             <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
@@ -610,16 +691,34 @@ export default function AlternativeCommunitiesGuide() {
           <Card className="border-primary/20 bg-gradient-to-r from-primary/5 to-accent/5">
             <CardContent className="py-12 text-center">
               <h2 className="text-3xl font-bold text-foreground mb-4">
-                Get the Complete Alternative Communities Guide
+                Get Your Network Societies Guide
               </h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Everything you need to understand, build, and manage alternative communities. 
-                From frameworks to case studies to implementation guides.
+                Choose the option that fits your needs - from quick-start essentials to comprehensive research.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
                 <Button
-                  onClick={handlePurchase}
+                  onClick={() => handlePurchase(BOOKLET_LOCK)}
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-4"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
+                      Opening Checkout...
+                    </>
+                  ) : (
+                    <>
+                      <BookOpen className="w-5 h-5 mr-2" />
+                      Booklet - ${BOOKLET_PRICE}
+                    </>
+                  )}
+                </Button>
+                <Button
+                  onClick={() => handlePurchase(BOOK_LOCK)}
                   size="lg"
                   className="text-lg px-8 py-4 bg-primary hover:bg-primary/90"
                   disabled={isLoading}
@@ -632,13 +731,16 @@ export default function AlternativeCommunitiesGuide() {
                   ) : (
                     <>
                       <BookOpen className="w-5 h-5 mr-2" />
-                      Get Complete Guide - $2,500
+                      Complete Guide - ${BOOK_PRICE}
                     </>
                   )}
                 </Button>
+              </div>
+
+              <div className="mb-6">
                 <Button
                   onClick={handleContact}
-                  variant="outline"
+                  variant="ghost"
                   size="lg"
                   className="text-lg px-8 py-4"
                 >
@@ -648,7 +750,7 @@ export default function AlternativeCommunitiesGuide() {
               </div>
 
               <div className="text-sm text-muted-foreground">
-                Includes 1-hour consultation call with the author • Discounts available upon request
+                Complete guide includes 1-hour consultation • Discounts available upon request
               </div>
               
               <div className="mt-8 pt-6 border-t border-primary/20">

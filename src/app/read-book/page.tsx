@@ -43,7 +43,11 @@ export default function ReaderPage() {
       }
     >
       <TokenGate>
-        <SimplePDFViewer pdfUrl="/PDF/NSR_sample.pdf" />
+        {({ tier }) => (
+          <SimplePDFViewer
+            pdfUrl={tier === 'book' ? '/PDF/NSR_2025_EN.pdf' : '/PDF/NSRbooklet_2025.pdf'}
+          />
+        )}
       </TokenGate>
     </ClientOnly>
   );

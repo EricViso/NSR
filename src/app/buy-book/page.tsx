@@ -6,37 +6,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Paywall } from "@unlock-protocol/paywall";
-import networks from '@unlock-protocol/networks';
-import { BOOKLET_LOCK, BOOK_LOCK, NETWORK, BOOKLET_PRICE, BOOK_PRICE } from "../../lib/constants";
+import { BOOKLET_CHECKOUT_URL, BOOK_CHECKOUT_URL, BOOKLET_PRICE, BOOK_PRICE } from "../../lib/constants";
 
 export default function AlternativeCommunitiesGuide() {
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  const handlePurchase = async (lockAddress: string) => {
-    setIsLoading(true);
-    try {
-      const paywall = new Paywall(networks);
-
-      if (typeof window !== 'undefined' && window.ethereum) {
-        await paywall.connect(window.ethereum);
-      }
-
-      paywall.loadCheckoutModal({
-        locks: {
-          [lockAddress]: {
-            network: NETWORK,
-          }
-        },
-        pessimistic: true,
-        redirectUri: `${window.location.origin}/book`,
-      });
-    } catch (error) {
-      console.error("Error opening checkout:", error);
-      alert("There was an error opening the checkout. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+  const handlePurchase = (checkoutUrl: string) => {
+    window.location.href = checkoutUrl;
   };
 
   const handleContact = () => {
@@ -87,18 +61,10 @@ export default function AlternativeCommunitiesGuide() {
                     </li>
                   </ul>
                   <Button
-                    onClick={() => handlePurchase(BOOKLET_LOCK)}
+                    onClick={() => handlePurchase(BOOKLET_CHECKOUT_URL)}
                     className="w-full"
-                    disabled={isLoading}
                   >
-                    {isLoading ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                        Opening Checkout...
-                      </>
-                    ) : (
-                      'Get Booklet'
-                    )}
+                    Get Booklet
                   </Button>
                 </CardContent>
               </Card>
@@ -135,18 +101,10 @@ export default function AlternativeCommunitiesGuide() {
                     </li>
                   </ul>
                   <Button
-                    onClick={() => handlePurchase(BOOK_LOCK)}
+                    onClick={() => handlePurchase(BOOK_CHECKOUT_URL)}
                     className="w-full"
-                    disabled={isLoading}
                   >
-                    {isLoading ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                        Opening Checkout...
-                      </>
-                    ) : (
-                      'Get Complete Guide'
-                    )}
+                    Get Complete Guide
                   </Button>
                 </CardContent>
               </Card>
@@ -369,25 +327,11 @@ export default function AlternativeCommunitiesGuide() {
                       Choose between quick-start booklet ($5) or complete guide ($500)
                     </p>
                     <div className="space-y-2">
-                      <Button onClick={() => handlePurchase(BOOKLET_LOCK)} variant="outline" className="w-full" disabled={isLoading}>
-                        {isLoading ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                            Opening Checkout...
-                          </>
-                        ) : (
-                          `Booklet - $${BOOKLET_PRICE}`
-                        )}
+                      <Button onClick={() => handlePurchase(BOOKLET_CHECKOUT_URL)} variant="outline" className="w-full">
+                        Booklet - ${BOOKLET_PRICE}
                       </Button>
-                      <Button onClick={() => handlePurchase(BOOK_LOCK)} className="w-full" disabled={isLoading}>
-                        {isLoading ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                            Opening Checkout...
-                          </>
-                        ) : (
-                          `Complete Guide - $${BOOK_PRICE}`
-                        )}
+                      <Button onClick={() => handlePurchase(BOOK_CHECKOUT_URL)} className="w-full">
+                        Complete Guide - ${BOOK_PRICE}
                       </Button>
                     </div>
                   </div>
@@ -612,15 +556,8 @@ export default function AlternativeCommunitiesGuide() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Access our complete step-by-step implementation framework
                       </p>
-                      <Button onClick={() => handlePurchase(BOOK_LOCK)} variant="outline" className="w-full" disabled={isLoading}>
-                        {isLoading ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-current mr-2"></div>
-                            Opening Checkout...
-                          </>
-                        ) : (
-                          "View Complete Guide"
-                        )}
+                      <Button onClick={() => handlePurchase(BOOK_CHECKOUT_URL)} variant="outline" className="w-full">
+                        View Complete Guide
                       </Button>
                     </div>
                   </CardContent>
@@ -699,41 +636,21 @@ export default function AlternativeCommunitiesGuide() {
 
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
                 <Button
-                  onClick={() => handlePurchase(BOOKLET_LOCK)}
+                  onClick={() => handlePurchase(BOOKLET_CHECKOUT_URL)}
                   size="lg"
                   variant="outline"
                   className="text-lg px-8 py-4"
-                  disabled={isLoading}
                 >
-                  {isLoading ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                      Opening Checkout...
-                    </>
-                  ) : (
-                    <>
-                      <BookOpen className="w-5 h-5 mr-2" />
-                      Booklet - ${BOOKLET_PRICE}
-                    </>
-                  )}
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Booklet - ${BOOKLET_PRICE}
                 </Button>
                 <Button
-                  onClick={() => handlePurchase(BOOK_LOCK)}
+                  onClick={() => handlePurchase(BOOK_CHECKOUT_URL)}
                   size="lg"
                   className="text-lg px-8 py-4 bg-primary hover:bg-primary/90"
-                  disabled={isLoading}
                 >
-                  {isLoading ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                      Opening Checkout...
-                    </>
-                  ) : (
-                    <>
-                      <BookOpen className="w-5 h-5 mr-2" />
-                      Complete Guide - ${BOOK_PRICE}
-                    </>
-                  )}
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Complete Guide - ${BOOK_PRICE}
                 </Button>
               </div>
 

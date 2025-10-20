@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git add -A)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: integrate Unlock Protocol direct checkout URLs\n\nUpdated purchase flow to use Unlock Protocol''s hosted checkout pages instead of the Paywall modal for a simpler, more reliable checkout experience.\n\n**Changes:**\n- Added checkout URLs to constants:\n  - Booklet ($5): https://app.unlock-protocol.com/checkout?id=bd7ee9c3-e8cc-4ba3-9029-efae7d452ec1\n  - Complete Guide ($500): https://app.unlock-protocol.com/checkout?id=77fa2809-f2d6-4362-a93b-7e09bd665f33\n\n- Updated buy-book page:\n  - Simplified purchase handler to redirect to checkout URLs\n  - Removed Paywall modal dependency\n  - Removed loading states (instant redirect)\n  - All purchase buttons now use direct URLs\n\n- Updated TokenGate component:\n  - Removed Paywall imports\n  - Simplified checkout flow with direct URL redirects\n  - Cleaner, more maintainable code\n\n**Benefits:**\n- Faster checkout experience (no modal loading)\n- More reliable (uses Unlock''s hosted checkout)\n- Better mobile experience\n- Simpler codebase with less dependencies\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

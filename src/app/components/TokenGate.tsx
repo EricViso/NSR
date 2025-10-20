@@ -4,9 +4,7 @@ import { useAccount, useConnect, useReadContract } from "wagmi";
 import { injected } from "wagmi/connectors";
 import { type ReactNode, useState, useEffect } from "react";
 import { PublicLockV13 } from "@unlock-protocol/contracts";
-import { BOOKLET_LOCK, BOOK_LOCK, NETWORK } from "../../lib/constants";
-import { Paywall } from "@unlock-protocol/paywall";
-import networks from '@unlock-protocol/networks';
+import { BOOKLET_LOCK, BOOK_LOCK, NETWORK, BOOKLET_CHECKOUT_URL, BOOK_CHECKOUT_URL } from "../../lib/constants";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -161,37 +159,8 @@ function Connect() {
  * Checkout subcomponent
  */
 function Checkout() {
-  const { connector } = useAccount();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const checkout = async (lockAddress: string) => {
-    setIsLoading(true);
-    const paywall = new Paywall(networks);
-
-    try {
-      // Get provider from connector
-      if (connector && connector.getProvider) {
-        const provider = await connector.getProvider();
-
-        // Connect the paywall to the provider
-        paywall.connect(provider);
-
-        // Open the checkout modal
-        paywall.loadCheckoutModal({
-          locks: {
-            [lockAddress]: {
-              network: NETWORK,
-            }
-          },
-          pessimistic: true,
-        });
-      }
-    } catch (error) {
-      console.error("Error opening checkout:", error);
-      alert("There was an error opening the checkout. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+  const handlePurchase = (checkoutUrl: string) => {
+    window.location.href = checkoutUrl;
   };
 
   return (
@@ -229,19 +198,11 @@ function Checkout() {
               </ul>
 
               <Button
-                onClick={() => checkout(BOOKLET_LOCK)}
+                onClick={() => handlePurchase(BOOKLET_CHECKOUT_URL)}
                 className="w-full font-bold"
                 size="lg"
-                disabled={isLoading}
               >
-                {isLoading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                    Opening Checkout...
-                  </>
-                ) : (
-                  'Get Booklet'
-                )}
+                Get Booklet
               </Button>
             </CardContent>
           </Card>
@@ -277,20 +238,12 @@ function Checkout() {
               </ul>
 
               <Button
-                onClick={() => checkout(BOOK_LOCK)}
+                onClick={() => handlePurchase(BOOK_CHECKOUT_URL)}
                 className="w-full font-bold"
                 size="lg"
                 variant="default"
-                disabled={isLoading}
               >
-                {isLoading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-current mr-2"></div>
-                    Opening Checkout...
-                  </>
-                ) : (
-                  'Get Complete Guide'
-                )}
+                Get Complete Guide
               </Button>
             </CardContent>
           </Card>

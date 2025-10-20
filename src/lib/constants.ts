@@ -7,6 +7,10 @@ export const NETWORK = 10; // Optimism network ID
 export const BOOKLET_PRICE = 5;
 export const BOOK_PRICE = 500;
 
+// Unlock Protocol Checkout URLs
+export const BOOKLET_CHECKOUT_URL = "https://app.unlock-protocol.com/checkout?id=bd7ee9c3-e8cc-4ba3-9029-efae7d452ec1"; // $5 Booklet
+export const BOOK_CHECKOUT_URL = "https://app.unlock-protocol.com/checkout?id=77fa2809-f2d6-4362-a93b-7e09bd665f33"; // $500 Complete Guide
+
 export const paywallConfig = {
     locks: {
       [BOOKLET_LOCK]: {

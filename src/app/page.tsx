@@ -36,7 +36,7 @@ export default function Home() {
                 <em>From DAOs to Network States to Digital Nations</em>
               </p>
               <p className="text-primary font-semibold">
-                * GET THE COMPLETE GUIDE 🚀
+                * GET YOUR GUIDE - FROM $5 🚀
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function Home() {
             <Button asChild size="lg" className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300">
               <Link href="/buy-book">
                 <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3" />
-                Get the Complete Guide
+                Get the Guide
               </Link>
             </Button>
             <Button
@@ -62,7 +62,7 @@ export default function Home() {
 
           <div className="text-center">
             <p className="text-sm md:text-base text-muted-foreground bg-muted/30 rounded-lg px-4 py-2 inline-block">
-              ✨ Includes 1-hour consultation call with the author • Discounts available upon request
+              ✨ Choose from Quick Start Booklet ($5) or Complete Guide ($500)
             </p>
           </div>
 
@@ -215,171 +215,281 @@ export default function Home() {
               <div className="space-y-6">
                 {/* Single column layout - one image per row */}
                 <div className="max-w-2xl mx-auto space-y-6">
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/1.png" alt="Alternative Communities Guide - Image 1" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/1.1.png" alt="Alternative Communities Guide - Image 1.1" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/2.png" alt="Alternative Communities Guide - Image 2" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/3.png" alt="Alternative Communities Guide - Image 3" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/4.png" alt="Alternative Communities Guide - Image 4" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/5.png" alt="Alternative Communities Guide - Image 5" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/7.png" alt="Alternative Communities Guide - Image 7" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/8.png" alt="Alternative Communities Guide - Image 8" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/9.png" alt="Alternative Communities Guide - Image 9" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/10.png" alt="Alternative Communities Guide - Image 10" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/11.png" alt="Alternative Communities Guide - Image 11" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/12.png" alt="Alternative Communities Guide - Image 12" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/13.png" alt="Alternative Communities Guide - Image 13" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/13.1.png" alt="Alternative Communities Guide - Image 13.1" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/14.png" alt="Alternative Communities Guide - Image 14" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/15.png" alt="Alternative Communities Guide - Image 15" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/16.png" alt="Alternative Communities Guide - Image 16" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/17.png" alt="Alternative Communities Guide - Image 17" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/18.png" alt="Alternative Communities Guide - Image 18" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/19.png" alt="Alternative Communities Guide - Image 19" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/20.png" alt="Alternative Communities Guide - Image 20" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/21.png" alt="Alternative Communities Guide - Image 21" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/22.png" alt="Alternative Communities Guide - Image 22" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/23.png" alt="Alternative Communities Guide - Image 23" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/24.png" alt="Alternative Communities Guide - Image 24" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/24.1.png" alt="Alternative Communities Guide - Image 24.1" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/25.png" alt="Alternative Communities Guide - Image 25" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/25.1.png" alt="Alternative Communities Guide - Image 25.1" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/26.png" alt="Alternative Communities Guide - Image 26" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/27.png" alt="Alternative Communities Guide - Image 27" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/28.png" alt="Alternative Communities Guide - Image 28" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/29.png" alt="Alternative Communities Guide - Image 29" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/31.png" alt="Alternative Communities Guide - Image 31" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/32.png" alt="Alternative Communities Guide - Image 32" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/33.png" alt="Alternative Communities Guide - Image 33" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/34.png" alt="Alternative Communities Guide - Image 34" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/35.png" alt="Alternative Communities Guide - Image 35" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/36.png" alt="Alternative Communities Guide - Image 36" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/37.png" alt="Alternative Communities Guide - Image 37" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/38.png" alt="Alternative Communities Guide - Image 38" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/39.png" alt="Alternative Communities Guide - Image 39" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/40.png" alt="Alternative Communities Guide - Image 40" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/41.png" alt="Alternative Communities Guide - Image 41" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/42.png" alt="Alternative Communities Guide - Image 42" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/43.png" alt="Alternative Communities Guide - Image 43" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/44.png" alt="Alternative Communities Guide - Image 44" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/45.png" alt="Alternative Communities Guide - Image 45" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/46.png" alt="Alternative Communities Guide - Image 46" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/47.png" alt="Alternative Communities Guide - Image 47" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/48.png" alt="Alternative Communities Guide - Image 48" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/49.png" alt="Alternative Communities Guide - Image 49" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/50.png" alt="Alternative Communities Guide - Image 50" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/51.png" alt="Alternative Communities Guide - Image 51" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/53.png" alt="Alternative Communities Guide - Image 53" className="w-full h-auto object-contain" />
-                  </div>
-                  <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
-                    <img src="/Assets/55.png" alt="Alternative Communities Guide - Image 55" className="w-full h-auto object-contain" />
-                  </div>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/1.png" alt="Alternative Communities Guide - Image 1" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/1.1.png" alt="Alternative Communities Guide - Image 1.1" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/2.png" alt="Alternative Communities Guide - Image 2" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/3.png" alt="Alternative Communities Guide - Image 3" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/4.png" alt="Alternative Communities Guide - Image 4" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/5.png" alt="Alternative Communities Guide - Image 5" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/7.png" alt="Alternative Communities Guide - Image 7" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/8.png" alt="Alternative Communities Guide - Image 8" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/9.png" alt="Alternative Communities Guide - Image 9" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/10.png" alt="Alternative Communities Guide - Image 10" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/11.png" alt="Alternative Communities Guide - Image 11" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/12.png" alt="Alternative Communities Guide - Image 12" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/13.png" alt="Alternative Communities Guide - Image 13" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/13.1.png" alt="Alternative Communities Guide - Image 13.1" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/14.png" alt="Alternative Communities Guide - Image 14" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/15.png" alt="Alternative Communities Guide - Image 15" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/16.png" alt="Alternative Communities Guide - Image 16" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/17.png" alt="Alternative Communities Guide - Image 17" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/18.png" alt="Alternative Communities Guide - Image 18" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/19.png" alt="Alternative Communities Guide - Image 19" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/20.png" alt="Alternative Communities Guide - Image 20" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/21.png" alt="Alternative Communities Guide - Image 21" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/22.png" alt="Alternative Communities Guide - Image 22" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/23.png" alt="Alternative Communities Guide - Image 23" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/24.png" alt="Alternative Communities Guide - Image 24" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/24.1.png" alt="Alternative Communities Guide - Image 24.1" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/25.png" alt="Alternative Communities Guide - Image 25" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/25.1.png" alt="Alternative Communities Guide - Image 25.1" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/26.png" alt="Alternative Communities Guide - Image 26" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/27.png" alt="Alternative Communities Guide - Image 27" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/28.png" alt="Alternative Communities Guide - Image 28" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/29.png" alt="Alternative Communities Guide - Image 29" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/31.png" alt="Alternative Communities Guide - Image 31" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/32.png" alt="Alternative Communities Guide - Image 32" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/33.png" alt="Alternative Communities Guide - Image 33" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/34.png" alt="Alternative Communities Guide - Image 34" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/35.png" alt="Alternative Communities Guide - Image 35" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/36.png" alt="Alternative Communities Guide - Image 36" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/37.png" alt="Alternative Communities Guide - Image 37" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/38.png" alt="Alternative Communities Guide - Image 38" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/39.png" alt="Alternative Communities Guide - Image 39" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/40.png" alt="Alternative Communities Guide - Image 40" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/41.png" alt="Alternative Communities Guide - Image 41" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/42.png" alt="Alternative Communities Guide - Image 42" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/43.png" alt="Alternative Communities Guide - Image 43" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/44.png" alt="Alternative Communities Guide - Image 44" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/45.png" alt="Alternative Communities Guide - Image 45" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/46.png" alt="Alternative Communities Guide - Image 46" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/47.png" alt="Alternative Communities Guide - Image 47" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/48.png" alt="Alternative Communities Guide - Image 48" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/49.png" alt="Alternative Communities Guide - Image 49" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/50.png" alt="Alternative Communities Guide - Image 50" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/51.png" alt="Alternative Communities Guide - Image 51" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/53.png" alt="Alternative Communities Guide - Image 53" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
+                  <a href="https://zora.co/@networkstatememes" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="relative overflow-hidden rounded-lg border hover:shadow-lg transition-shadow bg-white">
+                      <img src="/Assets/55.png" alt="Alternative Communities Guide - Image 55" className="w-full h-auto object-contain" />
+                    </div>
+                  </a>
                 </div>
               </div>
               <div className="text-center mt-8">
